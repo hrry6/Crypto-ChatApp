@@ -8,19 +8,19 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://crypto-chatapp.onrender.com',
         changeOrigin: true,
       },
       '/auth': {
-        target: 'http://localhost:8080',
+        target: 'https://crypto-chatapp.onrender.com',
         changeOrigin: true,
       },
       '/user': {
-        target: 'http://localhost:8080',
+        target: 'https://crypto-chatapp.onrender.com',
         changeOrigin: true,
       },
       '/ws-chat': {
-        target: 'http://localhost:8080',
+        target: 'https://crypto-chatapp.onrender.com',
         changeOrigin: true,
         ws: true,
       },
