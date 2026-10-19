@@ -1,7 +1,7 @@
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client/dist/sockjs.js';
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:8080';
+const BASE_URL = process.env.BASE_URL || 'https://crypto-chatapp.onrender.com';
 const USERNAME = process.env.WS_USERNAME || 'beta';
 const PASSWORD = process.env.WS_PASSWORD || 'Password123';
 
