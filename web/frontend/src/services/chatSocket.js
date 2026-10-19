@@ -2,7 +2,7 @@ import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client/dist/sockjs';
 import { STORAGE_KEYS } from '../data/mockData';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://crypto-chatapp.onrender.com';
 
 function buildSocketUrl() {
   return `${API_BASE_URL}/ws-chat`;
