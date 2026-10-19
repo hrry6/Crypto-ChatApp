@@ -1,17 +1,36 @@
 services:
-  postgres:
-    image: postgres:15
-    container_name: chat-postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: chatdb
+  app:
+    build: .
+    container_name: springboot-app
     ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ep-restless-dust-b59trh4x-pooler.c-7.us-east-2.aws.neon.tech/neondb?sslmode=require
+      - SPRING_DATASOURCE_USERNAME=neondb_owner
+      - SPRING_DATASOURCE_PASSWORD=npg_wQMgNJ13cAIE
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOWSQL=true
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+      - PINATA_API_KEY=629fc542b5b4f23e0a02
+      - PINATA_API_SECRET=82d19be6413ed724d615f7f49c3d9f31383848009b5f74be3f824497781d897e
+      - PINATA_BASE_URL=https://api.pinata.cloud/
+      - WEB3_RPC_URL=https://sepolia.base.org
+      - WEB3_CONTRACT_ADDRESS=0xC9266A970E7840c7413e030ed453AB467c57F6d5
+      - WEB3_PRIVATE_KEY=0x360305ba1a0d76d3d52446d491daba4593723839e11348ab254dce6516922265
+
+  # postgres:
+  #   image: postgres:15
+  #   container_name: chat-postgres
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: password
+  #     POSTGRES_DB: chatdb
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #     - ./data.sql:/docker-entrypoint-initdb.d/data.sql
 
 volumes:
   postgres_data:
